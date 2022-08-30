@@ -149,3 +149,7 @@ examples/examples_output/*
 vcfmix/picklist.sh
 vcfmix/testpick.txt
 vcfmix/transform.py
+
+*.csv
+*.json
+*.vcf

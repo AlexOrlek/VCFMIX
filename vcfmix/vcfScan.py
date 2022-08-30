@@ -520,7 +520,7 @@ class vcfScan():
 
             df = pd.concat([r1, r2, r3, r4, r5, r6, r8, r9, r10], axis=1)              # in R,  this is a cbind operation
         else:
-            df = None
+            df = pd.DataFrame()
         self.region_stats = df
         f.close()
         return True
@@ -590,7 +590,6 @@ class lineageScan(vcfScan):
 
         self._parse(vcffile)
         self.region_stats['sample_id'] = sample_id
-        return(None)
 
     def f_statistics(self, filename=None):
         """ computes F2 and F47 summary statistics.

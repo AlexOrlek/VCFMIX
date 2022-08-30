@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 import pytest
 import urllib.request
-from vcfmix.vcfScan import BinomialTest, vcfScan, lineageScan, FastaMixtureMarker
+from vcfmix import BinomialTest, vcfScan, lineageScan, FastaMixtureMarker
 
 SOURCE_DIR = Path(__file__).parent.absolute()
 test_vcf_file = os.path.join(SOURCE_DIR, '..', 'data', 'testdata', '52858be2-7020-4b7f-acb4-95e00019a7d7_v3.vcf.gz')

@@ -24,6 +24,21 @@ More specialised classes inherit from :vcfScan:
 * *FastaMixtureMarker* takes the output from vcfScan and uses it to modify a fasta files containing consensus basecalls, e.g. as produced by [bioinformatic pipeline used for TB processing in England](https://github.com/oxfordmmm/CompassCompact), replacing the called consensus with the relevant [IUPAC code for the mixture discerned](https://www.bioinformatics.org/sms/iupac.html).
 If you are looking for the *regionScan_from_genbank* used to perform the calculations described in our publication on [Adaptive masking](https://www.ncbi.nlm.nih.gov/pubmed/29875188), a strategy for assessing whether mis-mapping of non-target bacterial DNA is occurring, this has been moved to the [adaptivemasking module](https://github.com/davidhwyllie/adaptivemasking).
 
+## Installation
+Simple install using pip from git source
+```
+git clone https://github.com/AlexOrlek/VCFMIX.git
+cd VCFMIX
+```
+Optionally use a virtual environment
+```
+python -m virtualenv env
+source env/bin/activate
+```
+Then install...
+```
+pip install .
+```
 ## Examples
 
 ### Example of using lineageScan to compute F2 and F47 statistics
@@ -39,10 +54,8 @@ import urllib.request
 import json
 from pathlib import Path
 SOURCE_DIR = Path(__file__).parent.absolute()
-vcfmix_dir = os.path.join(SOURCE_DIR, '..', 'vcfmix')
 testdata_dir = os.path.join(SOURCE_DIR, '..', 'data', 'testdata')
-sys.path.append(vcfmix_dir)
-from vcfScan import lineageScan
+from vcfmix import lineageScan
 
 # create a lineagescan object;
 v = lineageScan()
@@ -89,10 +102,8 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import generic_dna
 SOURCE_DIR = Path(__file__).parent.absolute()
-vcfmix_dir = os.path.join(SOURCE_DIR, '..', 'vcfmix')
 testdata_dir = os.path.join(SOURCE_DIR, '..', 'data', 'testdata')
-sys.path.append(vcfmix_dir)
-from vcfScan import FastaMixtureMarker, vcfScan
+from vcfmix import FastaMixtureMarker, vcfScan
 
 print('set up vcfScan object.. (only needs to be done once)')
 # use the baseCounts4 tag to identify high quality bases
